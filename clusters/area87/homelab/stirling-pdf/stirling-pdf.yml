@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stirling-pdf
+  namespace: homelab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stirling-pdf
+  template:
+    metadata:
+      labels:
+        app: stirling-pdf
+    spec:
+      containers:
+        - name: stirling-pdf
+          image: frooodle/s-pdf:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DOCKER_ENABLE_SECURITY
+              value: "false"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stirling-pdf
+  namespace: homelab
+spec:
+  selector:
+    app: stirling-pdf
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stirling-pdf-ingress
+  namespace: homelab
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+    - host: pdf-optiplex.area87.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: stirling-pdf
+                port:
+                  number: 80
