@@ -14,4 +14,4 @@ metadata:
   namespace: metallb-system
 spec:
   interfaces:
-  - enp2s0  # replace with your actual LAN interface name
+  - eno1
