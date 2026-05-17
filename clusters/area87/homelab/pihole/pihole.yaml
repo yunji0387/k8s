@@ -113,6 +113,8 @@ kind: Service
 metadata:
   name: pihole
   namespace: homelab
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "pihole-dns"
 spec:
   type: LoadBalancer
   selector:
@@ -125,6 +127,20 @@ spec:
     targetPort: 53
     protocol: TCP
     name: dns-tcp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-dns-udp
+  namespace: homelab
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "pihole-dns"
+    metallb.universe.tf/loadBalancerIPs: 192.168.100.251
+spec:
+  type: LoadBalancer
+  selector:
+    app: pihole
+  ports:
   - port: 53
     targetPort: 53
     protocol: UDP
