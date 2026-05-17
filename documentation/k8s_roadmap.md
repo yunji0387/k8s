@@ -26,11 +26,12 @@ OptiPlex (k3s, single node)
 ## Phase 2 — Expose Apps via Cloudflare *(in progress)*
 **Goal**: Access Nextcloud and future apps from the internet
 
-- [x] Add app routes to cloudflared config (`cloud-optiplex.area87.uk` → Traefik) — see `cloudflared-config.yml`
-- [x] Create Traefik Ingress for Nextcloud — see `nextcloud/nextcloud-ingress.yml`
+- [x] Add app routes to cloudflared config (`cloud-optiplex.area87.uk` → Traefik) — see `cloudflared-config.yaml`
+- [x] Create Traefik Ingress for Nextcloud — see `nextcloud/nextcloud-ingress.yaml`
 - [x] Update Nextcloud trusted domain to `cloud-optiplex.area87.uk` — see `nextcloud/nextcloud-trusted-domain.sh`
-- [ ] Deploy Jellyfin (`jellyfin.area87.uk`) — see `nextcloud/jellyfin.yml`
-- [x] Deploy Stirling PDF (`pdf.area87.uk`) — see `nextcloud/stirling-pdf.yml`
+- [x] Deploy Jellyfin (`jellyfin-optiplex.area87.uk`) — see `jellyfin.yaml`
+- [x] Deploy Stirling PDF (`pdf-optiplex.area87.uk`) — see `stirling-pdf.yaml`
+- [x] Deploy Pi-hole - see `pihole.yaml`
 
 **Result**: All apps accessible via clean domain names
 
