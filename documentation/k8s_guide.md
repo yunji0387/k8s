@@ -266,7 +266,10 @@ sudo k3s crictl images
         │   │   ├── mariadb.yaml
         │   │   ├── nextcloud.yaml
         │   │   └── ingress.yaml         # cloud-optiplex.area87.uk
-        │   ├── jellyfin/                # planned — waiting for SATA SSD
+        │   ├── jellyfin/
+        │   │   └── jellyfin.yaml        # jellyfin-optiplex.area87.uk
+        │   ├── pihole/
+        │   │   └── pihole.yaml          # pihole-optiplex.area87.uk (LAN only)
         │   └── stirling-pdf/
         │       └── stirling-pdf.yaml    # pdf-optiplex.area87.uk
         └── storage/

@@ -5,7 +5,10 @@
 OptiPlex (k3s, single node)
 └── homelab namespace
     ├── nextcloud ✅
-    └── mariadb ✅
+    ├── mariadb ✅
+    ├── stirling-pdf ✅
+    ├── jellyfin ✅
+    └── pihole ✅
 ```
 
 ---
@@ -67,7 +70,7 @@ See `nextcloud/nextcloud-version-upgrade.md` for full steps and journal.
 
 - [ ] Provision new machine with Ubuntu Server
 - [ ] Join as k3s worker node
-- [ ] Install MetalLB (LoadBalancer for bare metal)
+- [x] Install MetalLB (LoadBalancer for bare metal)
 - [ ] Migrate cloudflared to k8s pod (point to Traefik cluster service)
 - [ ] Configure Longhorn to replicate volumes across nodes
 - [ ] Consider kube-vip for HA control plane (2+ control plane nodes)
